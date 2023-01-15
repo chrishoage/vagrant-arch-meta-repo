@@ -1,0 +1,12 @@
+#!/bin/bash
+
+[[ "$DEBUG_ARCH_REPOS" == "1" ]] && echo "running HOME=$HOME aur sync -d $REPO_NAME $@"
+
+aur sync -d $REPO_NAME \
+  --remove \
+  --noconfirm \
+  --noview \
+  --temp \
+  --chroot \
+  --makepkg-conf ~/.makepkg.conf \
+  "$@"

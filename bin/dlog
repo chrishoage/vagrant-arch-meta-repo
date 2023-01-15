@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo $(date) >> /var/cache/build/arch-pkgs.log
+
+if [ -t 0 ]; then
+  echo "$@" >> /var/cache/build/arch-pkgs.log
+else
+  cat >> /var/cache/build/arch-pkgs.log
+fi

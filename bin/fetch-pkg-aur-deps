@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+srcinfo-deps /var/cache/build/packages/*/.SRCINFO |
+    sort |
+    uniq |
+    aur query -t info - |
+    jq '.results[].Name' -r

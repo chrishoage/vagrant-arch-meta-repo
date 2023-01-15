@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+for dir in /var/cache/build/packages/*/; do
+  (
+    cd "$dir"
+    [[ "$DEBUG_ARCH_REPOS" == "1" ]] && echo "Making $dir.SRCINFO"
+    makepkg --printsrcinfo >.SRCINFO
+  )
+done
