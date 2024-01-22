@@ -53,6 +53,7 @@ Vagrant.configure("2") do |config|
 		libvirt.cpus = 6
 		libvirt.memory = 8192
     libvirt.memorybacking :access, :mode => "shared"
+    libvirt.autostart = true
   end
 
   config.vm.provision "shell", path: "bootstrap.sh", env: env, privileged: true

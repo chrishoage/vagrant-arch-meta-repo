@@ -45,11 +45,11 @@ Server = file:///var/cache/build/repo
 " >$pacman_conf
 fi
 
-chroot_pacman_conf=/etc/aurutils/pacman-$REPO_NAME.conf
+chroot_pacman_conf=/etc/aurutils/pacman-x86_64.conf
 
 if [ ! -f $chroot_pacman_conf ]; then
   echo "setting up $chroot_pacman_conf"
-  cp /usr/share/devtools/pacman-extra.conf $chroot_pacman_conf
+  cp /usr/share/devtools/pacman.conf.d/extra.conf $chroot_pacman_conf
   echo "\
 [$REPO_NAME]
 SigLevel = Optional TrustAll
@@ -61,7 +61,7 @@ chroot_makepkg_conf=$HOME/makepkg.conf
 
 if [ ! -f $chroot_makepkg_conf ]; then
   echo "setting up $chroot_makepkg_conf"
-  cp /usr/share/devtools/makepkg-$(uname -m).conf $chroot_makepkg_conf
+  cp /usr/share/devtools/makepkg.conf.d/x86_64_v3.conf $chroot_makepkg_conf
 fi
 
 pacsync $REPO_NAME
